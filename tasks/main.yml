@@ -10,7 +10,7 @@
 - name: Copy job-dsl-config.xml to destination
   become: yes
   copy:
-    src: job-dsl-config.xml
+    src: "{{ solita_jenkins_job_dsl_config | default('job-dsl-config.xml') }}"
     dest: /var/lib/jenkins/job-dsl-config.xml
     owner: jenkins
     group: jenkins
